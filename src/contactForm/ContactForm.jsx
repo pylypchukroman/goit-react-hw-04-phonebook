@@ -1,20 +1,10 @@
 import style from './ContactForm.module.css';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const ContactForm = ({ onSubmit }) => {
-  // state = {
-  //   name: '',
-  //   number: '',
-  // };
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  // handleChange = e => {
-  //   this.setState({
-  //     [e.currentTarget.name]: e.currentTarget.value,
-  //   });
-  // };
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -29,13 +19,6 @@ const ContactForm = ({ onSubmit }) => {
         break;
     }
   };
-
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   const { name, number } = this.state;
-  //   this.props.onSubmit(name, number);
-  //   this.setState({ name: '', number: '' });
-  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -75,6 +58,10 @@ const ContactForm = ({ onSubmit }) => {
       <button type="submit">Add contact</button>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
